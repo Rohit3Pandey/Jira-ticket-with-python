@@ -1,22 +1,10 @@
-# This code sample uses the 'requests' library:
-# http://docs.python-requests.org
-import requests
-from requests.auth import HTTPBasicAuth
-import json
+from flask import Flask
 
-url = "https://your-domain.atlassian.net/rest/api/3/project"
+app = ("__name__")
 
-auth = HTTPBasicAuth("email@example.com", "<api_token>")
+@app.route("/")
 
-headers = {
-  "Accept": "application/json"
-}
+def hello():
+    return "hello world"
 
-response = requests.request(
-   "GET",
-   url,
-   headers=headers,
-   auth=auth
-)
-
-print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
+app.run("0.0.0.0")
