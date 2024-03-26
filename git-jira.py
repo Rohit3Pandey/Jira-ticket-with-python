@@ -3,7 +3,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 
-app = ("__name__")
+app = Flask("__name__")
 
 @app.route("/CreateJira", methods=["POST"])
 
@@ -61,7 +61,4 @@ def CreateJira():
     
     return json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": "))
 
-    
-
-
-app.run("0.0.0.0", PORT = 5000)
+app.run("0.0.0.0", port = 5000)
